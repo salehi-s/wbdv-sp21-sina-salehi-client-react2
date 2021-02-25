@@ -3,7 +3,14 @@ import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import CourseEditor from "./course-editor/course-editor";
 import {Route} from 'react-router-dom'
-import courseService, {findAllCourses, deleteCourse} from "../services/course-service"
+import courseService, {findAllCourses} from "../services/course-service"
+
+{/* The CourseManager component represents the parent class of the two course views: Course Table
+    and Course Grid.  The Course Table is rendered beneath the Course Manager header by default,
+    and one may alternate between the two views by clicking on the icon in the upper-right corner
+    of the page.  The Course Manager also allows the user to create and add new courses to the
+    server by inputting a course title in the input field at the top of the page and then
+    clicking the red plus icon located to the right of it. */}
 
 class CourseManager extends React.Component {
     state = {

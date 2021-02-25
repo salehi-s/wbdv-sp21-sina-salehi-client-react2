@@ -1,6 +1,10 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
+{/* The CourseRow component represents a single row to be displayed in the Course Table
+    which details the title, owner, date last modified, and time last modified of a single
+    course. */}
+
 const CourseRow = (
     {
         title,

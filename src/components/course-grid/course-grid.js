@@ -1,7 +1,11 @@
 import React from 'react'
 import CourseCard from "./course-card"
 import {Link} from 'react-router-dom'
-import CourseRow from "../course-table/course-row";
+
+{/* The CourseGrid component displays all of the courses currently stored in the server
+    as a grid of cards in which each card lists the details of a single course.  Courses may be
+    removed from the server or edited with the icons located in the lower-left corner of each
+    card and the lower-right corner of each card, respectively. */}
 
 const CourseGrid = ({deleteCourse, updateCourse, courses}) =>
     <div>

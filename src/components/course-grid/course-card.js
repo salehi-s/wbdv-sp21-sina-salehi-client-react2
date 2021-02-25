@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import courseService from "../../services/course-service";
+
+{/* The CourseCard component represents a single card to be displayed in the Course Grid
+    which details the title, owner, date last modified, and time last modified of a single
+    course. */}
 
 const CourseCard = (
     {

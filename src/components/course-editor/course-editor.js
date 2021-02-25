@@ -1,6 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
+{/* The CourseEditor component contains multiple static elements from the Course Editor page
+    from Assignment 1 and Assignment 2.  This page is fully non-functional, except for the
+    arrow located in the upper-left corner of the page and the X located in the upper-right
+    corner of the page.  Both of these functional elements return the user to the previous page. */}
+
 const CourseEditor = ({props}) =>
     <div>
         <div className="container-fluid">

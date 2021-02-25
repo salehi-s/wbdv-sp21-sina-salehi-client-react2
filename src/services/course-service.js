@@ -1,5 +1,8 @@
 const COURSES_URL = 'https://wbdv-generic-server.herokuapp.com/api/salehi.s/courses'
 
+{/* The CourseService service interacts with the server to add, retrieve, update, and delete
+    courses stored in the server. */}
+
 export const createCourse = (course) =>
     fetch(COURSES_URL, {
         method: 'POST',

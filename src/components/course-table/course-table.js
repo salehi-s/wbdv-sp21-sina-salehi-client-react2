@@ -2,6 +2,10 @@ import React from 'react'
 import CourseRow from "./course-row"
 import {Link} from 'react-router-dom'
 
+{/* The CourseTable component displays all of the courses currently stored in the server
+    as a table in which each row lists the details of a single course.  Courses may be
+    removed from the server or edited with the icons located to the right of each row. */}
+
 export default class CourseTable
     extends React.Component {
 
