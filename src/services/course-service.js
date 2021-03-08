@@ -102,4 +102,5 @@ function CourseService() {
     function deleteCourse(id) {
         return fetch(`${self.url}/${id}`, {method: 'DELETE'})
     }
-}*/
+}
+*/
