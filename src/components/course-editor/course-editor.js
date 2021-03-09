@@ -1,6 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams, useHistory} from 'react-router-dom'
 import moduleReducer from '../../reducers/module-reducer'
+import {combineReducers, createStore} from 'redux'
+import {Provider} from 'react-redux'
+import ModuleList from './module-list'
 
 {/* The CourseEditor component contains multiple static elements from the Course Editor page
     from Assignment 1 and Assignment 2.  This page is fully non-functional, except for the
@@ -25,6 +28,8 @@ const CourseEditor = ({props}) =>
                     </h1>
                 </div>
             </div>
+
+            <ModuleList/>
 
             <div className="container-fluid">
                 <div className="row">
