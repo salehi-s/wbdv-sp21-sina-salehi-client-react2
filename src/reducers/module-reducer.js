@@ -18,5 +18,9 @@ const moduleReducer = (state = initialState, action) => {
 
         case "DELETE_MODULE":
 
+        default:
+            return state
     }
 }
+
+export default moduleReducer
