@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
-import {findTopicsForLesson} from '../../services/topic-service'
+import {createTopic, findTopicsForLesson} from '../../services/topic-service'
 
 const TopicPills = ({
     topics = [],
@@ -46,8 +46,14 @@ const stpm = (state) => ({
 
 {/* Dispatch to Property Mapper */}
 const dtpm = (dispatch) => ({
-    createTopic: () => {
-        dispatch({type: "CREATE_TOPIC"})
+    createTopic: (lessonId) => {
+        createTopic(lessonId, {
+            title: "New Topic"
+        })
+            .then(topic => dispatch({
+                type: "CREATE_TOPIC",
+                topic: topic
+            }))
     },
     findTopicsForLesson: (lessonId) => {
         findTopicsForLesson(lessonId)

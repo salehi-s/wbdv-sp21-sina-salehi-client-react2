@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
-import {findModulesForCourse} from '../../services/module-service'
+import {createModule, findModulesForCourse} from '../../services/module-service'
 
 const ModuleList = ({
     modules = [],
@@ -46,7 +46,7 @@ const ModuleList = ({
             }
             <li className = "list-group-item">
                 <i className = "fas fa-plus fa-2x"
-                   onClick = {createModule}></i>
+                   onClick = {() => createModule(courseId)}></i>
             </li>
         </ul>
     </div>)
@@ -59,8 +59,14 @@ const stpm = (state) => ({
 
 {/* Dispatch to Property Mapper */}
 const dtpm = (dispatch) => ({
-    createModule: () => {
-        dispatch({type: "CREATE_MODULE"})
+    createModule: (courseId) => {
+        createModule(courseId, {
+            title: "New Module"
+        })
+            .then(module => dispatch({
+                type: "CREATE_MODULE",
+                module: module
+            }))
     },
     findModulesForCourse: (courseId) => {
         findModulesForCourse(courseId)

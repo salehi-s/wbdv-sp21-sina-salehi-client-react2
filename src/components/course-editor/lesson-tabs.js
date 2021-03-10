@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
-import {findLessonsForModule} from '../../services/lesson-service'
+import {createLesson, findLessonsForModule} from '../../services/lesson-service'
 
 const LessonTabs = ({
     lessons = [],
@@ -47,8 +47,14 @@ const stpm = (state) => ({
 
 {/* Dispatch to Property Mapper */}
 const dtpm = (dispatch) => ({
-    createLesson: () => {
-        dispatch({type: "CREATE_LESSON"})
+    createLesson: (moduleId) => {
+        createLesson(moduleId, {
+            title: "New Lesson"
+        })
+            .then(lesson => dispatch({
+                type: "CREATE_LESSON",
+                lesson: lesson
+            }))
     },
     findLessonsForModule: (moduleId) => {
         findLessonsForModule(moduleId)
