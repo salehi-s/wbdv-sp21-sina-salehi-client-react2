@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
+import {findModulesForCourse} from '../../services/module-service'
 
 const ModuleList = ({
     modules = [],
@@ -17,6 +18,10 @@ const ModuleList = ({
         moduleId,
         lessonId
     } = useParams()
+
+    useEffect(() => {
+        findModulesForCourse(courseId)
+    }, [])
 
     return (<div className = "container-fluid">
         <h2>Module List</h2>
@@ -57,8 +62,12 @@ const dtpm = (dispatch) => ({
     createModule: () => {
         dispatch({type: "CREATE_MODULE"})
     },
-    findModulesForCourse: () => {
-        dispatch({type: "FIND_MODULES_FOR_COURSE"})
+    findModulesForCourse: (courseId) => {
+        findModulesForCourse(courseId)
+            .then(modules => dispatch({
+                type: "FIND_MODULES_FOR_COURSE",
+                modules: modules
+            }))
     },
     findModule: () => {
         dispatch({type: "FIND_MODULE"})

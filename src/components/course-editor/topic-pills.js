@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
+import {findTopicsForLesson} from '../../services/topic-service'
 
 const TopicPills = ({
     topics = [],
@@ -17,6 +18,10 @@ const TopicPills = ({
         moduleId,
         lessonId
     } = useParams()
+
+    useEffect(() => {
+        findTopicsForLesson(lessonId)
+    }, [])
 
     return (<div className="container-fluid">
         <h2>Topic Pills</h2>
@@ -44,8 +49,12 @@ const dtpm = (dispatch) => ({
     createTopic: () => {
         dispatch({type: "CREATE_TOPIC"})
     },
-    findTopicsForLesson: () => {
-        dispatch({type: "FIND_TOPICS_FOR_LESSON"})
+    findTopicsForLesson: (lessonId) => {
+        findTopicsForLesson(lessonId)
+            .then(topics => dispatch({
+                type: "FIND_TOPICS_FOR_LESSON",
+                topics: topics
+            }))
     },
     findTopic: () => {
         dispatch({type: "FIND_TOPIC"})

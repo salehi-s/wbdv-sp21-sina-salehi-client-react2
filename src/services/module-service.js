@@ -1,4 +1,4 @@
-const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/salehi.s/courses/"
+const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/salehi.s/courses"
 
 export const createModule = (courseId, module) => 0
 
