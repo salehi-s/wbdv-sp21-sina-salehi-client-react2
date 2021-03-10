@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const TopicPills = ({topics = []}) =>
+const TopicPills = ({
+    topics = [],
+    createTopic
+}) =>
     <div className = "container-fluid">
         <h2>Topic Pills</h2>
         <ul className = "nav nav-pills">
@@ -24,9 +27,11 @@ const stpm = (state) => ({
 })
 
 {/* Dispatch to Property Mapper */}
-const dtpm = (dispatch) => {
-
-}
+const dtpm = (dispatch) => ({
+    createTopic: () => {
+        dispatch({type: "CREATE_TOPIC"})
+    }
+})
 
 export default connect(stpm, dtpm)
 (TopicPills)

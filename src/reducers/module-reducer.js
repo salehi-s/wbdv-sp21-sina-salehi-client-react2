@@ -9,7 +9,17 @@ const initialState = {
 const moduleReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_MODULE":
-
+            const newModule = {
+                title: "New Module",
+                _id: (new Date()).getTime()
+            }
+            return {
+                ...state,
+                modules: [
+                    ...state.modules,
+                    newModule
+                ]
+            }
         case "FIND_MODULES_FOR_COURSE":
 
         case "FIND_MODULE":

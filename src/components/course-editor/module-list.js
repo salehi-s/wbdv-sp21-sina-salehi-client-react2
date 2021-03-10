@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const ModuleList = ({modules = []}) =>
+const ModuleList = ({
+    modules = [],
+    createModule
+}) =>
     <div className = "container-fluid">
         <h2>Module List</h2>
         <ul className = "list-group">
@@ -12,6 +15,10 @@ const ModuleList = ({modules = []}) =>
                     </li>
                 )
             }
+            <li className = "list-group-item">
+                <i className = "fas fa-plus fa-2x"
+                   onClick = {createModule}></i>
+            </li>
         </ul>
     </div>
 
@@ -21,9 +28,11 @@ const stpm = (state) => ({
 })
 
 {/* Dispatch to Property Mapper */}
-const dtpm = (dispatch) => {
-
-}
+const dtpm = (dispatch) => ({
+    createModule: () => {
+        dispatch({type: "CREATE_MODULE"})
+    }
+})
 
 export default connect(stpm, dtpm)
 (ModuleList)

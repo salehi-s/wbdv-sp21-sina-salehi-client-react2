@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const LessonTabs = ({lessons = []}) =>
+const LessonTabs = ({
+    lessons = [],
+    createLesson
+}) =>
     <div className = "container-fluid">
         <h2>Lesson Tabs</h2>
         <ul className = "nav nav-tabs">
@@ -24,9 +27,11 @@ const stpm = (state) => ({
 })
 
 {/* Dispatch to Property Mapper */}
-const dtpm = (dispatch) => {
-
-}
+const dtpm = (dispatch) => ({
+    createLesson: () => {
+        dispatch({type: "CREATE_LESSON"})
+    }
+})
 
 export default connect(stpm, dtpm)
 (LessonTabs)
