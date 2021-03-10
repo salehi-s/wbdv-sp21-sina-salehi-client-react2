@@ -23,7 +23,12 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({props}) => {
-    const {layout, courseId} = useParams()
+    const {
+        layout,
+        courseId,
+        moduleId,
+        lessonId
+    } = useParams()
     return (<Provider store={store}>
         <div>
             <div className="container-fluid">
@@ -33,7 +38,7 @@ const CourseEditor = ({props}) => {
                             <i onClick={() => props.history.goBack()}
                                className="fas fa-arrow-left"></i>
                         </Link>
-                        Course Editor {layout} {courseId}
+                        Course Editor
                         <i onClick={() => props.history.goBack()}
                            className="fas fa-times float-right"></i>
                     </h1>

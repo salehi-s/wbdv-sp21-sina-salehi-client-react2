@@ -138,7 +138,9 @@ class CourseManager extends React.Component {
                     </nav>
                 </div>
                 <div className = "container-fluid">
-                    <Route path = {["/courses/table", "/courses", ""]}
+                    <Route path = {["/courses/table",
+                                    "/courses",
+                                    ""]}
                            exact = {true}>
                         <CourseTable deleteCourse = {this.deleteCourse}
                                      updateCourse = {this.updateCourse}
@@ -154,7 +156,10 @@ class CourseManager extends React.Component {
                     </Route>
                 </div>
                 <div className = "container-fluid">
-                    <Route path = "/courses/:layout/edit/:courseId"
+                    <Route path = {["/courses/:layout/edit/:courseId",
+                                    "/courses/:layout/edit/:courseId/modules/:moduleId",
+                                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"]}
+                           exact = {true}
                            render = {(props) => <CourseEditor props = {props}/>}>
                     </Route>
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
+import {useParams} from 'react-router-dom'
 
 const ModuleList = ({
     modules = [],
@@ -9,14 +10,30 @@ const ModuleList = ({
     findModule,
     updateModule,
     deleteModule
-}) =>
-    <div className = "container-fluid">
+}) => {
+    const {
+        layout,
+        courseId,
+        moduleId,
+        lessonId
+    } = useParams()
+
+    return (<div className = "container-fluid">
         <h2>Module List</h2>
+
+        <ul>
+            <li>layout: {layout}</li>
+            <li>courseId: {courseId}</li>
+            <li>moduleId: {moduleId}</li>
+            <li>lessonId: {lessonId}</li>
+        </ul>
+
         <ul className = "list-group">
             {
                 modules.map(module =>
                     <li className = "list-group-item">
-                        <EditableItem item = {module}
+                        <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
+                                      item = {module}
                                       updateItem = {updateModule}
                                       deleteItem = {deleteModule}/>
                     </li>
@@ -27,7 +44,8 @@ const ModuleList = ({
                    onClick = {createModule}></i>
             </li>
         </ul>
-    </div>
+    </div>)
+}
 
 {/* State to Property Mapper */}
 const stpm = (state) => ({
