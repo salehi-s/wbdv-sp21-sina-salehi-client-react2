@@ -1,9 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import EditableItem from '../editable-item'
 
 const TopicPills = ({
     topics = [],
-    createTopic
+    createTopic,
+    findTopicsForLesson,
+    findTopic,
+    updateTopic,
+    deleteTopic
 }) =>
     <div className = "container-fluid">
         <h2>Topic Pills</h2>
@@ -11,10 +16,7 @@ const TopicPills = ({
             {
                 topics.map(topic =>
                     <li className = "nav-item">
-                        <a className = "nav-link"
-                           href = "#">
-                            {topic.title}
-                        </a>
+                        <EditableItem item = {topic}/>
                     </li>
                 )
             }
@@ -30,6 +32,18 @@ const stpm = (state) => ({
 const dtpm = (dispatch) => ({
     createTopic: () => {
         dispatch({type: "CREATE_TOPIC"})
+    },
+    findTopicsForLesson: () => {
+        dispatch({type: "FIND_TOPICS_FOR_LESSON"})
+    },
+    findTopic: () => {
+        dispatch({type: "FIND_TOPIC"})
+    },
+    updateTopic: (newItem) => {
+        dispatch({type: "UPDATE_TOPIC"})
+    },
+    deleteTopic: () => {
+        dispatch({type: "DELETE_TOPIC"})
     }
 })
 

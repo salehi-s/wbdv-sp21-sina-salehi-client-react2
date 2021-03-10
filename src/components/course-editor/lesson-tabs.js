@@ -1,9 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import EditableItem from '../editable-item'
 
 const LessonTabs = ({
     lessons = [],
-    createLesson
+    createLesson,
+    findLessonsForModule,
+    findLesson,
+    updateLesson,
+    deleteLesson
 }) =>
     <div className = "container-fluid">
         <h2>Lesson Tabs</h2>
@@ -11,10 +16,7 @@ const LessonTabs = ({
             {
                 lessons.map(lesson =>
                     <li className = "nav-item">
-                        <a className = "nav-link"
-                           href = "#">
-                            {lesson.title}
-                        </a>
+                        <EditableItem item = {lesson}/>
                     </li>
                 )
             }
@@ -30,6 +32,18 @@ const stpm = (state) => ({
 const dtpm = (dispatch) => ({
     createLesson: () => {
         dispatch({type: "CREATE_LESSON"})
+    },
+    findLessonsForModule: () => {
+        dispatch({type: "FIND_LESSONS_FOR_MODULE"})
+    },
+    findLesson: () => {
+        dispatch({type: "FIND_LESSON"})
+    },
+    updateLesson: (newItem) => {
+        dispatch({type: "UPDATE_LESSON"})
+    },
+    deleteLesson: () => {
+        dispatch({type: "DELETE_LESSON"})
     }
 })
 
