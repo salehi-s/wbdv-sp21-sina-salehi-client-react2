@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 const TopicPills = ({topics = []}) =>
     <div className = "container-fluid">
         <h2>Topic Pills</h2>
-        <ul className = "nav nav-tabs">
+        <ul className = "nav nav-pills">
             {
                 topics.map(topic =>
                     <li className = "nav-item">
@@ -20,7 +20,7 @@ const TopicPills = ({topics = []}) =>
 
 {/* State to Property Mapper */}
 const stpm = (state) => ({
-    topics: state.topics
+    topics: state.topicReducer.topics
 })
 
 {/* Dispatch to Property Mapper */}

@@ -20,7 +20,7 @@ const reducer = combineReducers({
     topicReducer: topicReducer
 })
 
-const store = createStore(lessonReducer)
+const store = createStore(reducer)
 
 const CourseEditor = ({props}) =>
     <Provider store = {store}>
@@ -39,9 +39,17 @@ const CourseEditor = ({props}) =>
                 </div>
             </div>
 
-            <ModuleList/>
-            <LessonTabs/>
-            <TopicPills/>
+            <div className = "container-fluid">
+                <div className = "row">
+                    <div className = "col-3">
+                        <ModuleList/>
+                    </div>
+                    <div className = "col-9">
+                        <LessonTabs/>
+                        <TopicPills/>
+                    </div>
+                </div>
+            </div>
 
             <div className="container-fluid">
                 <div className="row">

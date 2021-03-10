@@ -17,7 +17,7 @@ const ModuleList = ({modules = []}) =>
 
 {/* State to Property Mapper */}
 const stpm = (state) => ({
-    modules: state.modules
+    modules: state.moduleReducer.modules
 })
 
 {/* Dispatch to Property Mapper */}

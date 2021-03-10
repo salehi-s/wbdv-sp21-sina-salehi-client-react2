@@ -20,7 +20,7 @@ const LessonTabs = ({lessons = []}) =>
 
 {/* State to Property Mapper */}
 const stpm = (state) => ({
-    lessons: state.lessons
+    lessons: state.lessonReducer.lessons
 })
 
 {/* Dispatch to Property Mapper */}
