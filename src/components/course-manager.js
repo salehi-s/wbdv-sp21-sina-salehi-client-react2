@@ -146,14 +146,15 @@ class CourseManager extends React.Component {
                     </Route>
                 </div>
                 <div className = "container-fluid">
-                    <Route path = "/courses/grid">
+                    <Route path = "/courses/grid"
+                           exact = {true}>
                         <CourseGrid deleteCourse = {this.deleteCourse}
                                     updateCourse = {this.updateCourse}
                                     courses = {this.state.courses}/>
                     </Route>
                 </div>
                 <div className = "container-fluid">
-                    <Route path = "/courses/editor"
+                    <Route path = "/courses/:layout/edit/:courseId"
                            render = {(props) => <CourseEditor props = {props}/>}>
                     </Route>
                 </div>

@@ -22,29 +22,30 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-const CourseEditor = ({props}) =>
-    <Provider store = {store}>
+const CourseEditor = ({props}) => {
+    const {layout, courseId} = useParams()
+    return (<Provider store={store}>
         <div>
             <div className="container-fluid">
                 <div>
                     <h1>
-                        <Link to = "">
-                            <i onClick = {() => props.history.goBack()}
-                               className = "fas fa-arrow-left"></i>
+                        <Link to="">
+                            <i onClick={() => props.history.goBack()}
+                               className="fas fa-arrow-left"></i>
                         </Link>
-                        Course Editor
-                        <i onClick = {() => props.history.goBack()}
-                           className = "fas fa-times float-right"></i>
+                        Course Editor {layout} {courseId}
+                        <i onClick={() => props.history.goBack()}
+                           className="fas fa-times float-right"></i>
                     </h1>
                 </div>
             </div>
 
-            <div className = "container-fluid">
-                <div className = "row">
-                    <div className = "col-3">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-3">
                         <ModuleList/>
                     </div>
-                    <div className = "col-9">
+                    <div className="col-9">
                         <LessonTabs/>
                         <TopicPills/>
                     </div>
@@ -108,7 +109,8 @@ const CourseEditor = ({props}) =>
                                 <div className="btn-group me-1">
                                     <button type="button" className="btn-outline-success">Add Widget
                                     </button>
-                                    <button type="button" className="btn-outline-danger">Remove Widget
+                                    <button type="button" className="btn-outline-danger">Remove
+                                        Widget
                                     </button>
                                 </div>
                                 <div className="btn-group me-2">
@@ -164,6 +166,7 @@ const CourseEditor = ({props}) =>
                 </div>
             </div>
         </div>
-    </Provider>
+    </Provider>)
+}
 
 export default CourseEditor

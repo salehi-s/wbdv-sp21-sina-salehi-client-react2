@@ -49,7 +49,8 @@ const CourseCard = (
                 <p className="card-text">Date Last Modified: {course.lastModified}</p>
                 <p className="card-text">Time Last Modified: {course.time}</p>
                 <div className = "container-fluid">
-                    <Link to="/courses/editor" className="btn btn-primary">
+                    <Link to = {`/courses/grid/edit/${course._id}`}
+                          className = "btn btn-primary">
                         Go to {course.title}
                     </Link>
                 </div>
