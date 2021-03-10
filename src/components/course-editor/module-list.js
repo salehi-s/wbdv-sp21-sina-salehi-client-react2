@@ -17,7 +17,8 @@ const ModuleList = ({
                 modules.map(module =>
                     <li className = "list-group-item">
                         <EditableItem item = {module}
-                                      updateItem = {updateModule}/>
+                                      updateItem = {updateModule}
+                                      deleteItem = {deleteModule}/>
                     </li>
                 )
             }
@@ -45,10 +46,12 @@ const dtpm = (dispatch) => ({
         dispatch({type: "FIND_MODULE"})
     },
     updateModule: (newItem) => {
-        dispatch({type: "UPDATE_MODULE"})
+        dispatch({type: "UPDATE_MODULE",
+                  updatedModule: newItem})
     },
-    deleteModule: () => {
-        dispatch({type: "DELETE_MODULE"})
+    deleteModule: (itemToDelete) => {
+        dispatch({type: "DELETE_MODULE",
+                  moduleToDelete: itemToDelete})
     }
 })
 

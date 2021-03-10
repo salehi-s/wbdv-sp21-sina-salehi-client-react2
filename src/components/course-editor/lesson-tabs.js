@@ -16,7 +16,9 @@ const LessonTabs = ({
             {
                 lessons.map(lesson =>
                     <li className = "nav-item">
-                        <EditableItem item = {lesson}/>
+                        <EditableItem item = {lesson}
+                                      updateItem = {updateLesson}
+                                      deleteItem = {deleteLesson}/>
                     </li>
                 )
             }
@@ -40,10 +42,12 @@ const dtpm = (dispatch) => ({
         dispatch({type: "FIND_LESSON"})
     },
     updateLesson: (newItem) => {
-        dispatch({type: "UPDATE_LESSON"})
+        dispatch({type: "UPDATE_LESSON",
+                  updatedLesson: newItem})
     },
-    deleteLesson: () => {
-        dispatch({type: "DELETE_LESSON"})
+    deleteLesson: (itemToDelete) => {
+        dispatch({type: "DELETE_LESSON",
+                  lessonToDelete: itemToDelete})
     }
 })
 

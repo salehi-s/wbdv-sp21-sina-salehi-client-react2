@@ -16,7 +16,9 @@ const TopicPills = ({
             {
                 topics.map(topic =>
                     <li className = "nav-item">
-                        <EditableItem item = {topic}/>
+                        <EditableItem item = {topic}
+                                      updateItem = {updateTopic}
+                                      deleteItem = {deleteTopic}/>
                     </li>
                 )
             }
@@ -40,10 +42,12 @@ const dtpm = (dispatch) => ({
         dispatch({type: "FIND_TOPIC"})
     },
     updateTopic: (newItem) => {
-        dispatch({type: "UPDATE_TOPIC"})
+        dispatch({type: "UPDATE_TOPIC",
+                  updatedTopic: newItem})
     },
-    deleteTopic: () => {
-        dispatch({type: "DELETE_TOPIC"})
+    deleteTopic: (itemToDelete) => {
+        dispatch({type: "DELETE_TOPIC",
+                  topicToDelete: itemToDelete})
     }
 })
 
