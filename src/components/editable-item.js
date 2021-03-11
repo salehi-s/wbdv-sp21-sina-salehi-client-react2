@@ -15,7 +15,7 @@ const EditableItem = ({
                 !editing &&
                 <>
                     <Link to = {to}>
-                        {item.title} {item._id}
+                        {item.title}
                     </Link>
                     <i className = "fas fa-edit"
                        onClick = {() => setEditing(true)}/>
@@ -39,6 +39,6 @@ const EditableItem = ({
             }
         </>
     )
-}
+};
 
 export default EditableItem
