@@ -58,3 +58,16 @@ span {
 .wbdv-pill-topic.active a {
   color: white;
 }
+
+.wbdv-list-item-create-module {
+  text-align: center;
+}
+
+.fa-plus {
+  color: #1e90ff;
+}
+
+.fa-plus:hover {
+  color: #1869b8;
+  cursor: pointer;
+}

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
-import {useParams} from 'react-router-dom'
+import {Route, useParams} from 'react-router-dom'
 import topicService from '../../services/topic-service'
 
 const TopicPills = ({
@@ -29,26 +29,32 @@ const TopicPills = ({
         }
     }, [lessonId])
 
-    return (<div className = "container-fluid">
-        <h2>Topic Pills</h2>
-        <ul className = "nav nav-pills">
-            {
-                topics.map(topic =>
-                    <li className = {`nav-link ${topic._id === topicId ? "active" : ""} wbdv-pill-topic`}>
-                        <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
-                                      item = {topic}
-                                      active = {topic._id === topicId}
-                                      updateItem = {updateTopic}
-                                      deleteItem = {deleteTopic}/>
+    return (
+        <Route path = {["/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"]}
+               exact = {true}>
+            <div className = "container-fluid">
+                <h2>Topics</h2>
+                <ul className = "nav nav-pills">
+                    {
+                        topics.map(topic =>
+                            <li className = {`nav-link ${topic._id === topicId ? "active" : ""} wbdv-pill-topic`}>
+                                <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
+                                              item = {topic}
+                                              active = {topic._id === topicId}
+                                              updateItem = {updateTopic}
+                                              deleteItem = {deleteTopic}/>
+                            </li>
+                        )
+                    }
+                    <li className = "list-group-item">
+                        <i className = "fas fa-plus fa-2x"
+                           onClick = {() => createTopic(lessonId)}></i>
                     </li>
-                )
-            }
-            <li className = "list-group-item">
-                <i className = "fas fa-plus fa-2x"
-                   onClick = {() => createTopic(lessonId)}></i>
-            </li>
-        </ul>
-    </div>)
+                </ul>
+            </div>
+        </Route>
+    )
 }
 
 {/* State to Property Mapper */}

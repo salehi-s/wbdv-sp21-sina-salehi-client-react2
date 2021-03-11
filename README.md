@@ -3,24 +3,11 @@ CS5610 - Web Development</br>
 Professor Annunziato</br>
 Assignment 1 (Static Base) and 2 (User Administration)
 
-<h1>Core Application Files</h1>
+<h1>New Content in README</h1>
 
-1. Components
-    1. Course Editor
-        1. course-editor.js
-    1. Course Grid
-        1. course-grid.js
-        1. course-card.js
-    1. Course Table
-        1. course-table.js
-        1. course-row.js
-    1. course-manager.js
-1. Services
-    1. course-service.js
-1. App.js
-1. App.css
-1. index.js
-1. index.css
+<h3>Course Editor</h3>
+
+Located at the bottom of the application map below
 
 <h1>Application Map</h1>
 
@@ -61,10 +48,13 @@ course to the text entered in the input field.
 
 <h3>Course Editor</h3>
 
-The Course Editor displays all of the same information that was in the Course Editor
-of the previous assignment.  The contents of the Course Editor are static/non-functional,
-and clicking on any of the elements on the page except for the arrow in the upper-left corner
-of the page or the X in the upper-right corner of the page will do nothing.  Clicking on either
-the arrow in the upper-left corner of the page or the X in the upper-right corner of the page
-will return you to the previous page (either the Course Table or Course Grid depending on
-how you reached the Course Editor).
+The Course Editor consists of three main sections: Modules, Lessons, and Topics.
+If a module is not selected, you will not be able to view or add lessons or topics.
+If a lesson is not selected, you will not be able to view or add topics.
+Click the plus icon under Modules to add a new module with the title "New Module"
+to the list of modules.  After selecting a module, click the plus icon under Lessons
+to add a new lesson with the title "New Lesson" to the list of lessons.  After selecting
+a lesson, click the plus icon under Topics to add a new topic with the title "New
+Topic" to the list of topics.  Topics are specific to their corresponding lessons,
+lessons are specific to their corresponding modules, and modules are specific to their
+corresponding courses.

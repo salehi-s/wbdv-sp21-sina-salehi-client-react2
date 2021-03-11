@@ -35,13 +35,10 @@ const CourseEditor = ({props}) => {
             <div className="container-fluid">
                 <div>
                     <h1>
-                        <Link to="">
-                            <i onClick={() => props.history.goBack()}
-                               className="fas fa-arrow-left"></i>
+                        <Link to = {`/courses/${layout}`}>
+                            <i className = "fas fa-times"></i>
                         </Link>
                         Course Editor
-                        <i onClick={() => props.history.goBack()}
-                           className="fas fa-times float-right"></i>
                     </h1>
                 </div>
             </div>

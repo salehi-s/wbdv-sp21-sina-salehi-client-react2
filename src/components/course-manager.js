@@ -117,22 +117,34 @@ class CourseManager extends React.Component {
                                         Course Manager
                                     </h1>
                                 </li>
-                                <span>
+                                <Route path = {["/courses/table",
+                                                "/courses/grid",
+                                                "/courses",
+                                                ""]}
+                                       exact = {true}>
+                                    <span>
+                                        <li className = "nav-item">
+                                            <input id = "add-course-field"
+                                                   value = {this.state.newCourseTitle}
+                                                   onChange = {(e) => this.setState({
+                                                       newCourseTitle: e.target.value
+                                                   })}
+                                                   className = "form-control wbdv-field-add-course"
+                                                   title = "Enter the name of a new course here"
+                                                   placeholder = "New Course Name"></input>
+                                        </li>
+                                    </span>
+                                </Route>
+                                <Route path = {["/courses/table",
+                                                "/courses/grid",
+                                                "/courses",
+                                                ""]}
+                                       exact = {true}>
                                     <li className = "nav-item">
-                                        <input id = "add-course-field"
-                                               value = {this.state.newCourseTitle}
-                                               onChange = {(e) => this.setState({
-                                                   newCourseTitle: e.target.value
-                                               })}
-                                               className = "form-control wbdv-field-add-course"
-                                               title = "Enter the name of a new course here"
-                                               placeholder = "New Course Name"></input>
+                                        <i onClick = {this.addCourse}
+                                           className = "fas fa-3x fa-plus-circle wbdv-button-add-course-top float-right"></i>
                                     </li>
-                                </span>
-                                <li className = "nav-item">
-                                    <i onClick = {this.addCourse}
-                                       className = "fas fa-3x fa-plus-circle wbdv-button-add-course-top float-right"></i>
-                                </li>
+                                </Route>
                             </ul>
                         </div>
                     </nav>
@@ -165,10 +177,16 @@ class CourseManager extends React.Component {
                     </Route>
                 </div>
                 <div className = "container-fluid">
-                    <div className = "fixed-bottom">
-                        <i onClick = {this.addCourse}
-                           className = "fas fa-3x fa-plus-circle float-right wbdv-button-add-course-bottom"></i>
-                    </div>
+                    <Route path = {["/courses/table",
+                                    "/courses/grid",
+                                    "/courses",
+                                    ""]}
+                           exact = {true}>
+                        <div className = "fixed-bottom">
+                            <i onClick = {this.addCourse}
+                               className = "fas fa-3x fa-plus-circle float-right wbdv-button-add-course-bottom"></i>
+                        </div>
+                    </Route>
                 </div>
             </div>
         )

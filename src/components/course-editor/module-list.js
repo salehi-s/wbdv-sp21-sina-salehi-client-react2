@@ -25,15 +25,7 @@ const ModuleList = ({
     }, [])
 
     return (<div className = "container-fluid">
-        <h2>Module List</h2>
-
-        <ul>
-            <li>layout: {layout}</li>
-            <li>courseId: {courseId}</li>
-            <li>moduleId: {moduleId}</li>
-            <li>lessonId: {lessonId}</li>
-            <li>topicId: {topicId}</li>
-        </ul>
+        <h2>Modules</h2>
 
         <ul className = "list-group">
             {
@@ -47,7 +39,7 @@ const ModuleList = ({
                     </li>
                 )
             }
-            <li className = "list-group-item">
+            <li className = "list-group-item wbdv-list-item-create-module">
                 <i className = "fas fa-plus fa-2x"
                    onClick = {() => createModule(courseId)}></i>
             </li>
