@@ -1,9 +1,5 @@
 const initialState = {
-    modules: [
-        {title: "CS5610", _id: "1"},
-        {title: "DS5110", _id: "2"},
-        {title: "CS5200", _id: "3"}
-    ]
+    modules: []
 }
 
 const moduleReducer = (state = initialState, action) => {

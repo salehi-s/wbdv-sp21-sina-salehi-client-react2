@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from '../editable-item'
 import {useParams} from 'react-router-dom'
-import {createModule, findModulesForCourse} from '../../services/module-service'
+import moduleService from '../../services/module-service'
 
 const ModuleList = ({
     modules = [],
@@ -60,7 +60,7 @@ const stpm = (state) => ({
 {/* Dispatch to Property Mapper */}
 const dtpm = (dispatch) => ({
     createModule: (courseId) => {
-        createModule(courseId, {
+        moduleService.createModule(courseId, {
             title: "New Module"
         })
             .then(module => dispatch({
@@ -69,7 +69,7 @@ const dtpm = (dispatch) => ({
             }))
     },
     findModulesForCourse: (courseId) => {
-        findModulesForCourse(courseId)
+        moduleService.findModulesForCourse(courseId)
             .then(modules => dispatch({
                 type: "FIND_MODULES_FOR_COURSE",
                 modules: modules
@@ -79,12 +79,14 @@ const dtpm = (dispatch) => ({
         dispatch({type: "FIND_MODULE"})
     },
     updateModule: (newItem) => {
-        dispatch({type: "UPDATE_MODULE",
-                  updatedModule: newItem})
+        moduleService.updateModule(newItem._id, newItem)
+            .then(status => dispatch({type: "UPDATE_MODULE",
+                                      updatedModule: newItem}))
     },
     deleteModule: (itemToDelete) => {
-        dispatch({type: "DELETE_MODULE",
-                  moduleToDelete: itemToDelete})
+        moduleService.deleteModule(itemToDelete._id)
+            .then(status => dispatch({type: "DELETE_MODULE",
+                                      moduleToDelete: itemToDelete}))
     }
 })
 

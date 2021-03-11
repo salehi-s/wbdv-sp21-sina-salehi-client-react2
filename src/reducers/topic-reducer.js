@@ -1,9 +1,5 @@
 const initialState = {
-    topics: [
-        {title: "Topic1", _id: "1"},
-        {title: "Topic2", _id: "2"},
-        {title: "Topic3", _id: "3"}
-    ]
+    topics: []
 }
 
 const topicReducer = (state = initialState, action) => {

@@ -1,9 +1,5 @@
 const initialState = {
-    lessons: [
-        {title: "Lesson1", _id: "1"},
-        {title: "Lesson2", _id: "2"},
-        {title: "Lesson3", _id: "3"}
-    ]
+    lessons: []
 }
 
 const lessonReducer = (state = initialState, action) => {
