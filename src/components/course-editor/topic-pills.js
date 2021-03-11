@@ -37,6 +37,7 @@ const TopicPills = ({
                     <li className = {`nav-link ${topic._id === topicId ? "active" : ""} wbdv-pill-topic`}>
                         <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                                       item = {topic}
+                                      active = {topic._id === topicId}
                                       updateItem = {updateTopic}
                                       deleteItem = {deleteTopic}/>
                     </li>

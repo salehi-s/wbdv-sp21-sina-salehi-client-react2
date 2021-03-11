@@ -26,16 +26,17 @@ const LessonTabs = ({
         }
     }, [moduleId])
 
-    return (<div className="container-fluid">
+    return (<div className = "container-fluid">
         <h2>Lesson Tabs</h2>
-        <ul className="nav nav-tabs">
+        <ul className = "nav nav-tabs">
             {
                 lessons.map(lesson =>
                     <li className = {`nav-link ${lesson._id === lessonId ? "active" : ""} wbdv-tab-lesson`}>
                         <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
-                                      item={lesson}
-                                      updateItem={updateLesson}
-                                      deleteItem={deleteLesson}/>
+                                      item = {lesson}
+                                      active = {lesson._id === lessonId}
+                                      updateItem = {updateLesson}
+                                      deleteItem = {deleteLesson}/>
                     </li>
                 )
             }

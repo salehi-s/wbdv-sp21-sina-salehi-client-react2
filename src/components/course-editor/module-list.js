@@ -41,6 +41,7 @@ const ModuleList = ({
                     <li className = {`list-group-item ${module._id === moduleId ? "active" : ""}`}>
                         <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                       item = {module}
+                                      active = {module._id === moduleId}
                                       updateItem = {updateModule}
                                       deleteItem = {deleteModule}/>
                     </li>
