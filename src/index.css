@@ -71,3 +71,8 @@ span {
   color: #1869b8;
   cursor: pointer;
 }
+
+.wbdv-editable-item-action-icon {
+  margin: 2px;
+  padding: 2px;
+}

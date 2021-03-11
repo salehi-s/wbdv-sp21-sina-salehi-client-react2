@@ -18,8 +18,10 @@ const EditableItem = ({
                     <Link to = {to}>
                         {item.title}
                     </Link>
-                    <i className = "fas fa-edit"
-                       onClick = {() => setEditing(true)}/>
+                    <span className = "wbdv-editable-item-action-icon">
+                        <i className = "fas fa-edit fa-lg"
+                           onClick = {() => setEditing(true)}/>
+                    </span>
                 </>
             }
             {
@@ -28,18 +30,22 @@ const EditableItem = ({
                     <input value = {itemCache.title}
                            onChange = {(e) => setItemCache({...itemCache,
                                                                                             title: e.target.value})}/>
-                    <i className = "fas fa-check"
-                       onClick = {() => {
-                           setEditing(false)
-                           updateItem(itemCache)
-                       }}
-                    />
-                    <i className = "fas fa-times"
-                       onClick = {() => deleteItem(item)}/>
+                    <span className = "wbdv-editable-item-action-icon">
+                        <i className = "fas fa-check fa-lg"
+                           onClick = {() => {
+                               setEditing(false)
+                               updateItem(itemCache)
+                           }}
+                        />
+                    </span>
+                    <span className = "wbdv-editable-item-action-icon">
+                        <i className = "fas fa-times fa-lg"
+                           onClick = {() => deleteItem(item)}/>
+                    </span>
                 </>
             }
         </>
     )
-};
+}
 
 export default EditableItem
