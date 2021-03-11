@@ -19,3 +19,13 @@ export const findTopic = (topicId) => 0
 export const updateTopic = (topicId, topic) => 0
 
 export const deleteTopic = (topicId) => 0
+
+const api = {
+    createTopic,
+    findTopicsForLesson,
+    findTopic,
+    updateTopic,
+    deleteTopic
+}
+
+export default api

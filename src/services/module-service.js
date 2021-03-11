@@ -19,3 +19,13 @@ export const findModule = (moduleId) => 0
 export const updateModule = (moduleId, module) => 0
 
 export const deleteModule = (moduleId) => 0
+
+const api = {
+    createModule,
+    findModulesForCourse,
+    findModule,
+    updateModule,
+    deleteModule
+}
+
+export default api

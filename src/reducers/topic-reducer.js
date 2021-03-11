@@ -9,15 +9,15 @@ const initialState = {
 const topicReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_TOPIC":
-            const newTopic = {
-                title: "New Topic",
-                _id: (new Date()).getTime()
-            }
+            // const newTopic = {
+            //     title: "New Topic",
+            //     _id: (new Date()).getTime()
+            // }
             return {
                 ...state,
                 topics: [
                     ...state.topics,
-                    newTopic
+                    action.topic
                 ]
             }
         case "FIND_TOPICS_FOR_LESSON":

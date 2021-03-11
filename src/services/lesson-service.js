@@ -19,3 +19,13 @@ export const findLesson = (lessonId) => 0
 export const updateLesson = (lessonId, lesson) => 0
 
 export const deleteLesson = (lessonId) => 0
+
+const api = {
+    createLesson,
+    findLessonsForModule,
+    findLesson,
+    updateLesson,
+    deleteLesson
+}
+
+export default api
