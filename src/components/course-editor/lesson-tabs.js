@@ -16,19 +16,22 @@ const LessonTabs = ({
         layout,
         courseId,
         moduleId,
-        lessonId
+        lessonId,
+        topicId
     } = useParams()
 
     useEffect(() => {
-        findLessonsForModule(moduleId)
-    }, [])
+        if (moduleId !== "undefined" && typeof moduleId !== "undefined") {
+            findLessonsForModule(moduleId)
+        }
+    }, [moduleId])
 
     return (<div className="container-fluid">
         <h2>Lesson Tabs</h2>
         <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
-                    <li className="nav-item">
+                    <li className = {`nav-link ${lesson._id === lessonId ? "active" : ""} wbdv-tab-lesson`}>
                         <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                       item={lesson}
                                       updateItem={updateLesson}
@@ -36,6 +39,10 @@ const LessonTabs = ({
                     </li>
                 )
             }
+            <li className = "list-group-item">
+                <i className = "fas fa-plus fa-2x"
+                   onClick = {() => createLesson(moduleId)}></i>
+            </li>
         </ul>
     </div>)
 }

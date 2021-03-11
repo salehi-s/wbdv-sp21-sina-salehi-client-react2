@@ -16,7 +16,8 @@ const ModuleList = ({
         layout,
         courseId,
         moduleId,
-        lessonId
+        lessonId,
+        topicId
     } = useParams()
 
     useEffect(() => {
@@ -31,12 +32,13 @@ const ModuleList = ({
             <li>courseId: {courseId}</li>
             <li>moduleId: {moduleId}</li>
             <li>lessonId: {lessonId}</li>
+            <li>topicId: {topicId}</li>
         </ul>
 
         <ul className = "list-group">
             {
                 modules.map(module =>
-                    <li className = "list-group-item">
+                    <li className = {`list-group-item ${module._id === moduleId ? "active" : ""}`}>
                         <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                       item = {module}
                                       updateItem = {updateModule}

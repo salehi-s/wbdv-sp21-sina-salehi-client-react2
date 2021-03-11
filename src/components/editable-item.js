@@ -15,7 +15,7 @@ const EditableItem = ({
                 !editing &&
                 <>
                     <Link to = {to}>
-                        {item.title}
+                        {item.title} {item._id}
                     </Link>
                     <i className = "fas fa-edit"
                        onClick = {() => setEditing(true)}/>

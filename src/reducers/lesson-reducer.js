@@ -5,10 +5,6 @@ const initialState = {
 const lessonReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_LESSON":
-            // const newLesson = {
-            //     title: "New Lesson",
-            //     _id: (new Date()).getTime()
-            // }
             return {
                 ...state,
                 lessons: [

@@ -16,25 +16,36 @@ const TopicPills = ({
         layout,
         courseId,
         moduleId,
-        lessonId
+        lessonId,
+        topicId
     } = useParams()
 
     useEffect(() => {
-        findTopicsForLesson(lessonId)
-    }, [])
+        if (moduleId !== "undefined" &&
+            typeof moduleId !== "undefined" &&
+            lessonId !== "undefined" &&
+            typeof lessonId !== "undefined") {
+            findTopicsForLesson(lessonId)
+        }
+    }, [lessonId])
 
-    return (<div className="container-fluid">
+    return (<div className = "container-fluid">
         <h2>Topic Pills</h2>
-        <ul className="nav nav-pills">
+        <ul className = "nav nav-pills">
             {
                 topics.map(topic =>
-                    <li className="nav-item">
-                        <EditableItem item={topic}
-                                      updateItem={updateTopic}
-                                      deleteItem={deleteTopic}/>
+                    <li className = {`nav-link ${topic._id === topicId ? "active" : ""} wbdv-pill-topic`}>
+                        <EditableItem to = {`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
+                                      item = {topic}
+                                      updateItem = {updateTopic}
+                                      deleteItem = {deleteTopic}/>
                     </li>
                 )
             }
+            <li className = "list-group-item">
+                <i className = "fas fa-plus fa-2x"
+                   onClick = {() => createTopic(lessonId)}></i>
+            </li>
         </ul>
     </div>)
 }

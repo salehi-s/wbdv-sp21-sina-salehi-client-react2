@@ -5,10 +5,6 @@ const initialState = {
 const topicReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_TOPIC":
-            // const newTopic = {
-            //     title: "New Topic",
-            //     _id: (new Date()).getTime()
-            // }
             return {
                 ...state,
                 topics: [

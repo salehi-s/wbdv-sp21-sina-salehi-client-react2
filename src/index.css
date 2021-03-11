@@ -50,3 +50,11 @@ span {
   margin: 2px;
   padding: 2px;
 }
+
+.list-group-item.active a {
+  color: white;
+}
+
+.wbdv-pill-topic.active a {
+  color: white;
+}
