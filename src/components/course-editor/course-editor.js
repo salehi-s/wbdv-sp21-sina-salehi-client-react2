@@ -51,7 +51,9 @@ const CourseEditor = ({props}) => {
                     </div>
                     <div className="col-9">
                         <LessonTabs/>
+                        <br/>
                         <TopicPills/>
+                        <br/>
                         <WidgetList/>
                     </div>
                 </div>
