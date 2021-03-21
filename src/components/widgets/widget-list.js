@@ -14,6 +14,7 @@ const WidgetList = () => {
     }, [topicId])
     return (
         <div>
+            <i className = "fas fa-plus fa-2x float-right"></i>
             <h1>Widget List</h1>
             <ul className = "list-group">
                 {
