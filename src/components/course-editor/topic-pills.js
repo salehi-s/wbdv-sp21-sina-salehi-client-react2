@@ -17,7 +17,8 @@ const TopicPills = ({
         courseId,
         moduleId,
         lessonId,
-        topicId
+        topicId,
+        widgetId
     } = useParams()
 
     useEffect(() => {

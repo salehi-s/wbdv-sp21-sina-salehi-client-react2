@@ -15,12 +15,12 @@ const WidgetList = ({
     // deleteWidget
 }) => {
     const {
-        // layout,
-        // courseId,
-        // moduleId,
-        // lessonId,
-        topicId
-        // widgetId
+        layout,
+        courseId,
+        moduleId,
+        lessonId,
+        topicId,
+        widgetId
     } = useParams()
 
     const [widgets, setWidgets] = useState([])
@@ -83,15 +83,15 @@ const WidgetList = ({
                             {
                                 _widget.id === widget.id &&
                                     <>
-                                        <i className = "fas fa-trash fa-2x float-right"
+                                        <i className = "fas fa-trash fa-2x float-right wbdv-editable-item-action-icon"
                                            onClick = {() => deleteWidget(_widget.id)}></i>
-                                        <i className = "fas fa-check fa-2x float-right"
+                                        <i className = "fas fa-check fa-2x float-right wbdv-editable-item-action-icon"
                                            onClick = {() => {updateWidget(_widget.id, widget)}}></i>
                                     </>
                             }
                             {
                                 _widget.id !== widget.id &&
-                                    <i className = "fas fa-cog fa-2x float-right"
+                                    <i className = "fas fa-cog fa-2x float-right wbdv-editable-item-action-icon"
                                        onClick = {() => setWidget(_widget)}></i>
                             }
                             {
@@ -114,16 +114,18 @@ const WidgetList = ({
     )
 }
 
-/*
-{/!* State to Property Mapper *!/}
+{/* State to Property Mapper */}
 const stpm = (state) => ({
     widgets: state.widgetReducer.widgets
 })
 
+{/* Dispatch to Property Mapper */}
 const dtpm = (dispatch) => ({
     createWidget: (tid) => {
         widgetService.createWidget(tid, {
-            type: "HEADING"
+            type: "HEADING",
+            size: 2,
+            text: "New Widget"
         })
             .then(widget => dispatch({
                 type: "CREATE_WIDGET",
@@ -158,6 +160,3 @@ const dtpm = (dispatch) => ({
 
 export default connect(stpm, dtpm)
 (WidgetList)
-*/
-
-export default WidgetList
