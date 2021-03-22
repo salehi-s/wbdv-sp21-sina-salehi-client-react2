@@ -1,11 +1,12 @@
 import React from 'react'
 
-const TOPIC_URL = process.env.REACT_APP_TOPIC_URL
-const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
+// const TOPICS_URL = "https://wbdv-generic-server.herokuapp.com/api/salehi.s/topics"
+const TOPICS_URL = process.env.REACT_APP_TOPICS_URL
+const WIDGETS_URL = process.env.REACT_APP_WIDGETS_URL
 
 export const createWidget = (tid, widget) => {
     return(
-        fetch(`${TOPIC_URL}/topics/${tid}/widgets`, {
+        fetch(`${TOPICS_URL}/topics/${tid}/widgets`, {
             method: "POST",
             body: JSON.stringify(widget),
             headers: {
@@ -18,7 +19,7 @@ export const createWidget = (tid, widget) => {
 
 export const findWidgetsForTopic = (tid) => {
     return(
-        fetch(`${TOPIC_URL}/topics/${tid}/widgets`)
+        fetch(`${TOPICS_URL}/topics/${tid}/widgets`)
             .then(response => response.json())
     )
 }
@@ -31,7 +32,7 @@ export const findWidget = (wid) => {
 
 export const updateWidget = (wid, widget) => {
     return(
-        fetch(`${WIDGET_URL}/widgets/${wid}`, {
+        fetch(`${WIDGETS_URL}/widgets/${wid}`, {
             method: "PUT",
             body: JSON.stringify(widget),
             headers: {
@@ -44,7 +45,7 @@ export const updateWidget = (wid, widget) => {
 
 export const deleteWidget = (wid) => {
     return(
-        fetch(`${WIDGET_URL}/widgets/${wid}`, {
+        fetch(`${WIDGETS_URL}/widgets/${wid}`, {
             method: "DELETE"
         })
             .then(response => response.json())

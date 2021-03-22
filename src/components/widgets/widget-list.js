@@ -7,10 +7,10 @@ import HeadingWidget from './heading-widget'
 import ParagraphWidget from './paragraph-widget'
 
 const WidgetList = ({
-    // allWidgets = [],
+    allWidgets = [],
     // createWidget,
-    // findWidgetsForTopic,
-    // findWidget,
+    findWidgetsForTopic,
+    findWidget,
     // updateWidget,
     // deleteWidget
 }) => {
@@ -30,6 +30,18 @@ const WidgetList = ({
         fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
             .then(response => response.json())
             .then(widgets => setWidgets(widgets))
+
+        /*
+        if (moduleId !== "undefined" &&
+            typeof moduleId !== "undefined" &&
+            lessonId !== "undefined" &&
+            typeof lessonId !== "undefined" &&
+            topicId !== "undefined" &&
+            typeof topicId !== "undefined") {
+            findWidgetsForTopic(topicId)
+        }
+        */
+
     }, [topicId])
 
     const createWidget = () => {
@@ -45,8 +57,7 @@ const WidgetList = ({
             }
         })
             .then(response => response.json())
-            .then(widget => setWidgets((widgets) => [...widgets,
-                                                          widget]))
+            .then(widget => setWidgets((widgets) => [...widgets, widget]))
     }
 
     const deleteWidget = (id) =>
@@ -70,11 +81,11 @@ const WidgetList = ({
                 setWidgets((widgets) => widgets.map(w => w.id === id ? widget : w))
             })
 
-    return (
+    return(
         <div>
             <i className = "fas fa-plus fa-2x float-right"
                onClick = {createWidget}></i>
-            <h1>Widget List {widget.id}</h1>
+            <h1>Widget List</h1>
             <ul className = "list-group">
                 {
                     widgets.map(_widget =>
