@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {useParams} from 'react-router-dom'
+import {Route, useParams} from 'react-router-dom'
 
 import widgetService from '../../services/widget-service'
 import HeadingWidget from './heading-widget'
@@ -82,46 +82,50 @@ const WidgetList = ({
             })
 
     return(
-        <div>
-            <i className = "fas fa-plus fa-2x float-right"
-               onClick = {createWidget}></i>
-            <h1>Widget List</h1>
-            <ul className = "list-group">
-                {
-                    widgets.map(_widget =>
-                        <li className = "list-group-item"
-                            key = {_widget.id}>
-                            {
-                                _widget.id === widget.id &&
-                                    <>
-                                        <i className = "fas fa-trash fa-2x float-right wbdv-editable-item-action-icon"
-                                           onClick = {() => deleteWidget(_widget.id)}></i>
-                                        <i className = "fas fa-check fa-2x float-right wbdv-editable-item-action-icon"
-                                           onClick = {() => {updateWidget(_widget.id, widget)}}></i>
-                                    </>
-                            }
-                            {
-                                _widget.id !== widget.id &&
-                                    <i className = "fas fa-cog fa-2x float-right wbdv-editable-item-action-icon"
-                                       onClick = {() => setWidget(_widget)}></i>
-                            }
-                            {
-                                _widget.type === "HEADING" &&
-                                    <HeadingWidget widget = {widget}
-                                                   setWidget = {setWidget}
-                                                   editing = {_widget.id === widget.id}/>
-                            }
-                            {
-                                _widget.type === "PARAGRAPH" &&
-                                    <ParagraphWidget widget = {widget}
-                                                     setWidget = {setWidget}
-                                                     editing = {_widget.id === widget.id}/>
-                            }
-                        </li>
-                    )
-                }
-            </ul>
-        </div>
+        <Route path = {["/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId"]}
+               exact = {true}>
+            <div className = "container-fluid">
+                <i className = "fas fa-plus fa-2x float-right"
+                   onClick = {createWidget}></i>
+                <h2>Widget List</h2>
+                <ul className = "list-group">
+                    {
+                        widgets.map(_widget =>
+                            <li className = "list-group-item"
+                                key = {_widget.id}>
+                                {
+                                    _widget.id === widget.id &&
+                                        <>
+                                            <i className = "fas fa-trash fa-2x float-right wbdv-editable-item-action-icon"
+                                               onClick = {() => deleteWidget(_widget.id)}></i>
+                                            <i className = "fas fa-check fa-2x float-right wbdv-editable-item-action-icon"
+                                               onClick = {() => {updateWidget(_widget.id, widget)}}></i>
+                                        </>
+                                }
+                                {
+                                    _widget.id !== widget.id &&
+                                        <i className = "fas fa-cog fa-2x float-right wbdv-editable-item-action-icon"
+                                           onClick = {() => setWidget(_widget)}></i>
+                                }
+                                {
+                                    _widget.type === "HEADING" &&
+                                        <HeadingWidget widget = {widget}
+                                                       setWidget = {setWidget}
+                                                       editing = {_widget.id === widget.id}/>
+                                }
+                                {
+                                    _widget.type === "PARAGRAPH" &&
+                                        <ParagraphWidget widget = {widget}
+                                                         setWidget = {setWidget}
+                                                         editing = {_widget.id === widget.id}/>
+                                }
+                            </li>
+                        )
+                    }
+                </ul>
+            </div>
+        </Route>
     )
 }
 

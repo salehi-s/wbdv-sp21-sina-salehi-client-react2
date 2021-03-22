@@ -2,7 +2,7 @@ import React from 'react'
 
 const HeadingWidget = ({widget, setWidget, editing}) =>
     <div className = "container-fluid">
-        <h2>Heading Widget {widget.id}</h2>
+        <h3>Heading Widget</h3>
 
         {widget.size === 1 && <h1>{widget.text}</h1>}
         {widget.size === 2 && <h2>{widget.text}</h2>}

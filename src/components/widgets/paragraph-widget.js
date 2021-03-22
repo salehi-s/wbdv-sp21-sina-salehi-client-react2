@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 const ParagraphWidget = ({widget, setWidget, editing}) => {
     return (
         <div className = "container-fluid">
-            <h2>Paragraph Widget {widget.id}</h2>
+            <h3>Paragraph Widget</h3>
 
             {
                 editing &&
