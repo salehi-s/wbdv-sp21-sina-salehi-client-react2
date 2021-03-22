@@ -48,13 +48,16 @@ course to the text entered in the input field.
 
 <h3>Course Editor</h3>
 
-The Course Editor consists of three main sections: Modules, Lessons, and Topics.
-If a module is not selected, you will not be able to view or add lessons or topics.
-If a lesson is not selected, you will not be able to view or add topics.
+The Course Editor consists of four main sections: Modules, Lessons, Topics, and Widgets.
+If a module is not selected, you will not be able to view or add lessons, topics, or widgets.
+If a lesson is not selected, you will not be able to view or add topics or widgets.
+If a topic is not selected, you will not be able to view or add widgets.
 Click the plus icon under Modules to add a new module with the title "New Module"
 to the list of modules.  After selecting a module, click the plus icon under Lessons
 to add a new lesson with the title "New Lesson" to the list of lessons.  After selecting
 a lesson, click the plus icon under Topics to add a new topic with the title "New
-Topic" to the list of topics.  Topics are specific to their corresponding lessons,
-lessons are specific to their corresponding modules, and modules are specific to their
-corresponding courses.
+Topic" to the list of topics.  After selecting a topic, click the plus icon to the right of
+Widgets List to add a new widget with the type "HEADING", the size 1, and the text "New Widget"
+to the list of widgets.  Widgets are specific to their corresponding topics, topics are
+specific to their corresponding lessons, lessons are specific to their corresponding modules,
+and modules are specific to their corresponding courses.
