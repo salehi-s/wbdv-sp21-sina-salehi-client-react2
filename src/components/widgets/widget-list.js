@@ -37,7 +37,7 @@ const WidgetList = ({
             method: "POST",
             body: JSON.stringify({
                 type: "HEADING",
-                size: "2",
+                size: "1",
                 text: "New Widget"
             }),
             headers: {
@@ -124,7 +124,7 @@ const dtpm = (dispatch) => ({
     createWidget: (tid) => {
         widgetService.createWidget(tid, {
             type: "HEADING",
-            size: 2,
+            size: 1,
             text: "New Widget"
         })
             .then(widget => dispatch({
