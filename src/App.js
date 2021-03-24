@@ -1,10 +1,11 @@
-import CourseManager from "./components/course-manager";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom"
+
+import CourseManager from "./components/course-manager"
 
 function App() {
-  return (
+  return(
       <BrowserRouter>
-          <div className="container-fluid">
+          <div className = "container-fluid">
               <CourseManager/>
           </div>
       </BrowserRouter>

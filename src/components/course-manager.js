@@ -1,8 +1,10 @@
 import React from 'react'
-import CourseTable from "./course-table/course-table";
-import CourseGrid from "./course-grid/course-grid";
-import CourseEditor from "./course-editor/course-editor";
 import {Route} from 'react-router-dom'
+
+import CourseTable from "./course-table/course-table"
+import CourseGrid from "./course-grid/course-grid"
+import CourseEditor from "./course-editor/course-editor"
+
 import courseService, {findAllCourses} from "../services/course-service"
 
 {/* The CourseManager component represents the parent class of the two course views: Course Table
@@ -95,7 +97,6 @@ class CourseManager extends React.Component {
     }
 
     deleteCourse = (courseToDelete) => {
-
         courseService.deleteCourse(courseToDelete._id)
             .then(status => {
                 this.setState((prevState) => ({
@@ -109,8 +110,9 @@ class CourseManager extends React.Component {
         return(
             <div>
                 <div className = "container-fluid">
-                    <nav className="navbar navbar-expand navbar-dark bg-dark">
-                        <div className = "collapse navbar-collapse" id = "navbarNav">
+                    <nav className = "navbar navbar-expand navbar-dark bg-dark">
+                        <div className = "collapse navbar-collapse"
+                             id = "navbarNav">
                             <ul className = "navbar-nav">
                                 <li className = "nav-item">
                                     <h1 className = "wbdv-header-course-manager">
@@ -131,7 +133,7 @@ class CourseManager extends React.Component {
                                                    })}
                                                    className = "form-control wbdv-field-add-course"
                                                    title = "Enter the name of a new course here"
-                                                   placeholder = "New Course Name"></input>
+                                                   placeholder = "New Course Name"/>
                                         </li>
                                     </span>
                                 </Route>
@@ -142,7 +144,7 @@ class CourseManager extends React.Component {
                                        exact = {true}>
                                     <li className = "nav-item">
                                         <i onClick = {this.addCourse}
-                                           className = "fas fa-3x fa-plus-circle wbdv-button-add-course-top float-right"></i>
+                                           className = "fas fa-3x fa-plus-circle wbdv-button-add-course-top float-right"/>
                                     </li>
                                 </Route>
                             </ul>
@@ -184,7 +186,7 @@ class CourseManager extends React.Component {
                            exact = {true}>
                         <div className = "fixed-bottom">
                             <i onClick = {this.addCourse}
-                               className = "fas fa-3x fa-plus-circle float-right wbdv-button-add-course-bottom"></i>
+                               className = "fas fa-3x fa-plus-circle float-right wbdv-button-add-course-bottom"/>
                         </div>
                     </Route>
                 </div>

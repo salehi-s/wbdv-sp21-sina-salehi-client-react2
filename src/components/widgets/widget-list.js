@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import {connect} from 'react-redux'
 import {Route, useParams} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import widgetService from '../../services/widget-service'
 import HeadingWidget from './heading-widget'
 import ParagraphWidget from './paragraph-widget'
+
+import widgetService from '../../services/widget-service'
 
 const WidgetList = ({
     allWidgets = [],
@@ -23,8 +24,8 @@ const WidgetList = ({
         widgetId
     } = useParams()
 
-    const [widgets, setWidgets] = useState([])
     const [widget, setWidget] = useState({})
+    const [widgets, setWidgets] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
@@ -87,7 +88,7 @@ const WidgetList = ({
                exact = {true}>
             <div className = "container-fluid">
                 <i className = "fas fa-plus fa-2x float-right"
-                   onClick = {createWidget}></i>
+                   onClick = {createWidget}/>
                 <h2>Widget List</h2>
                 <ul className = "list-group">
                     {
@@ -98,15 +99,15 @@ const WidgetList = ({
                                     _widget.id === widget.id &&
                                         <>
                                             <i className = "fas fa-trash fa-2x float-right wbdv-editable-item-action-icon"
-                                               onClick = {() => deleteWidget(_widget.id)}></i>
+                                               onClick = {() => deleteWidget(_widget.id)}/>
                                             <i className = "fas fa-check fa-2x float-right wbdv-editable-item-action-icon"
-                                               onClick = {() => {updateWidget(_widget.id, widget)}}></i>
+                                               onClick = {() => {updateWidget(_widget.id, widget)}}/>
                                         </>
                                 }
                                 {
                                     _widget.id !== widget.id &&
                                         <i className = "fas fa-cog fa-2x float-right wbdv-editable-item-action-icon"
-                                           onClick = {() => setWidget(_widget)}></i>
+                                           onClick = {() => setWidget(_widget)}/>
                                 }
                                 {
                                     _widget.type === "HEADING" &&

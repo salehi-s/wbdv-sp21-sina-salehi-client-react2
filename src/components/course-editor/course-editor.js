@@ -1,20 +1,17 @@
 import React from 'react'
-import {Link, useParams, useHistory} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
+import {combineReducers, createStore} from 'redux'
+import {Provider} from 'react-redux'
+
 import moduleReducer from '../../reducers/module-reducer'
 import lessonReducer from '../../reducers/lesson-reducer'
 import topicReducer from '../../reducers/topic-reducer'
 import widgetReducer from '../../reducers/widget-reducer'
-import {combineReducers, createStore} from 'redux'
-import {Provider} from 'react-redux'
+
 import ModuleList from './module-list'
 import LessonTabs from './lesson-tabs'
 import TopicPills from './topic-pills'
-import WidgetList from "../widgets/widget-list";
-
-{/* The CourseEditor component contains multiple static elements from the Course Editor page
-    from Assignment 1 and Assignment 2.  This page is fully non-functional, except for the
-    arrow located in the upper-left corner of the page and the X located in the upper-right
-    corner of the page.  Both of these functional elements return the user to the previous page. */}
+import WidgetList from "../widgets/widget-list"
 
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
@@ -34,9 +31,10 @@ const CourseEditor = ({props}) => {
         topicId,
         widgetId
     } = useParams()
-    return (<Provider store={store}>
+    return(
+    <Provider store = {store}>
         <div>
-            <div className="container-fluid">
+            <div className = "container-fluid">
                 <div>
                     <h1>
                         <Link to = {`/courses/${layout}`}>
@@ -47,12 +45,12 @@ const CourseEditor = ({props}) => {
                 </div>
             </div>
 
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-3">
+            <div className = "container-fluid">
+                <div className = "row">
+                    <div className = "col-3">
                         <ModuleList/>
                     </div>
-                    <div className="col-9">
+                    <div className = "col-9">
                         <LessonTabs/>
                         <br/>
                         <TopicPills/>
@@ -62,7 +60,8 @@ const CourseEditor = ({props}) => {
                 </div>
             </div>
         </div>
-    </Provider>)
+    </Provider>
+    )
 }
 
 export default CourseEditor

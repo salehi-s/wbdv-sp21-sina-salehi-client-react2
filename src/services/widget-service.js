@@ -1,6 +1,5 @@
 import React from 'react'
 
-// const TOPICS_URL = "https://wbdv-generic-server.herokuapp.com/api/salehi.s/topics"
 const TOPICS_URL = process.env.REACT_APP_TOPICS_URL
 const WIDGETS_URL = process.env.REACT_APP_WIDGETS_URL
 
