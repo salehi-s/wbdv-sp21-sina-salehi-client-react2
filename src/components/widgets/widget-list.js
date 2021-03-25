@@ -28,7 +28,7 @@ const WidgetList = ({
     const [widgets, setWidgets] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
+        fetch(`https://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets`)
             .then(response => response.json())
             .then(widgets => setWidgets(widgets))
 
@@ -46,7 +46,7 @@ const WidgetList = ({
     }, [topicId])
 
     const createWidget = () => {
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+        fetch(`https://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets`, {
             method: "POST",
             body: JSON.stringify({
                 type: "HEADING",
@@ -62,7 +62,7 @@ const WidgetList = ({
     }
 
     const deleteWidget = (id) =>
-        fetch(`http://localhost:8080/api/widgets/${id}`, {
+        fetch(`https://salty-springs-12156.herokuapp.com/api/widgets/${id}`, {
             method: "DELETE"
         })
             .then((status) => {
@@ -70,7 +70,7 @@ const WidgetList = ({
             })
 
     const updateWidget = (id, widget) =>
-        fetch(`http://localhost:8080/api/widgets/${id}`, {
+        fetch(`https://salty-springs-12156.herokuapp.com/api/widgets/${id}`, {
             method: "PUT",
             body: JSON.stringify(widget),
             headers: {
