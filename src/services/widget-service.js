@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TOPICS_URL = "https://salty-springs-12156.herokuapp.com/api"
-const WIDGETS_URL = "https://salty-springs-12156.herokuapp.com/api"
+const TOPICS_URL = "http://localhost:8080/api"
+const WIDGETS_URL = "http://localhost:8080/api"
 
 export const createWidget = (tid, widget) => {
     return(
