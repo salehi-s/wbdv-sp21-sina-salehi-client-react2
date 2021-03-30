@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 
 import HeadingWidget from './heading-widget'
 import ParagraphWidget from './paragraph-widget'
+import ListWidget from './list-widget'
+import ImageWidget from './image-widget'
 
 import widgetService from '../../services/widget-service'
 
@@ -120,6 +122,18 @@ const WidgetList = ({
                                         <ParagraphWidget widget = {widget}
                                                          setWidget = {setWidget}
                                                          editing = {_widget.id === widget.id}/>
+                                }
+                                {
+                                    _widget.type === "LIST" &&
+                                        <ListWidget widget = {widget}
+                                                    setWidget = {setWidget}
+                                                    editing = {_widget.id === widget.id}/>
+                                }
+                                {
+                                    _widget.type === "IMAGE" &&
+                                        <ImageWidget widget = {widget}
+                                                     setWidget = {setWidget}
+                                                     editing = {_widget.id === widget.id}/>
                                 }
                             </li>
                         )
