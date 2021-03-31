@@ -51,9 +51,21 @@ const WidgetList = ({
         fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
             method: "POST",
             body: JSON.stringify({
+                name: "New Widget",
+                topicId: topicId,
                 type: "HEADING",
-                size: "1",
-                text: "New Widget"
+                widgetOrder: null,
+                text: "Widget Text",
+                src: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
+                url: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
+                href: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
+                size: 1,
+                width: 100,
+                height: 100,
+                cssClass: null,
+                style: null,
+                value: "initialValue",
+                ordered: false
             }),
             headers: {
                 "content-type": "application/json"
@@ -153,9 +165,21 @@ const stpm = (state) => ({
 const dtpm = (dispatch) => ({
     createWidget: (tid) => {
         widgetService.createWidget(tid, {
+            name: "New Widget",
+            topicId: tid,
             type: "HEADING",
+            widgetOrder: null,
+            text: "Widget Text",
+            src: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
+            url: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
+            href: "https://upload.wikimedia.org/wikipedia/en/b/bd/Northeastern_University_seal.svg",
             size: 1,
-            text: "New Widget"
+            width: 100,
+            height: 100,
+            cssClass: null,
+            style: null,
+            value: "initialValue",
+            ordered: false
         })
             .then(widget => dispatch({
                 type: "CREATE_WIDGET",

@@ -1,19 +1,24 @@
 import React from 'react'
 
 const ListWidget = ({widget, setWidget, editing}) => {
+
     return(
         <div className = "container-fluid">
-            <h2>List Widget</h2>
+            <h3>List Widget</h3>
             {
                 editing &&
                     <div className = "container-fluid">
-                        <input type = "checkbox"/> Ordered
+                        <input type = "checkbox"
+                               id = "orderedCheckbox"
+                               onChange = {(e) => setWidget(widget => ({...widget,
+                                                                                                  ordered: document.getElementById("orderedCheckbox").checked}))}/> Ordered
                         <br/>
                         List Items
                         <textarea className = "form-control"
                                   value = {widget.text}
+                                  onChange = {(e) => setWidget(widget => ({...widget,
+                                                                                                       text: e.target.value}))}
                                   rows = {10}>
-
                         </textarea>
                     </div>
             }
@@ -25,11 +30,11 @@ const ListWidget = ({widget, setWidget, editing}) => {
                                 <ol>
                                     {
                                         widget && widget.text &&
-                                        widget.text.split("\n").map(item => {
-                                            return(
-                                                <li>{item}</li>
-                                            )
-                                        })
+                                            widget.text.split("\n").map(item => {
+                                                return(
+                                                    <li>{item}</li>
+                                                )
+                                            })
                                     }
                                 </ol>
                         }
@@ -38,11 +43,11 @@ const ListWidget = ({widget, setWidget, editing}) => {
                                 <ul>
                                     {
                                         widget && widget.text &&
-                                        widget.text.split("\n").map(item => {
-                                            return(
-                                                <li>{item}</li>
-                                            )
-                                        })
+                                            widget.text.split("\n").map(item => {
+                                                return(
+                                                    <li>{item}</li>
+                                                )
+                                            })
                                     }
                                 </ul>
                         }
