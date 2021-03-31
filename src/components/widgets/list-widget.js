@@ -19,15 +19,34 @@ const ListWidget = ({widget, setWidget, editing}) => {
             }
             {
                 !editing &&
-                    <ul>
+                    <>
                         {
-                            widget.text.split("\n").map(item => {
-                                return(
-                                    <li>{item}</li>
-                                )
-                            })
+                            widget.ordered &&
+                                <ol>
+                                    {
+                                        widget && widget.text &&
+                                        widget.text.split("\n").map(item => {
+                                            return(
+                                                <li>{item}</li>
+                                            )
+                                        })
+                                    }
+                                </ol>
                         }
-                    </ul>
+                        {
+                            !widget.ordered &&
+                                <ul>
+                                    {
+                                        widget && widget.text &&
+                                        widget.text.split("\n").map(item => {
+                                            return(
+                                                <li>{item}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                        }
+                    </>
             }
         </div>
     )
