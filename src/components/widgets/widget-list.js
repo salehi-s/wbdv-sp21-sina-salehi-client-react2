@@ -139,7 +139,8 @@ const WidgetList = ({
                                     _widget.type === "LIST" &&
                                         <ListWidget widget = {widget}
                                                     setWidget = {setWidget}
-                                                    editing = {_widget.id === widget.id}/>
+                                                    editing = {_widget.id === widget.id}
+                                                    ordered = {widget.ordered}/>
                                 }
                                 {
                                     _widget.type === "IMAGE" &&

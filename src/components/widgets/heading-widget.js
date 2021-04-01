@@ -21,6 +21,8 @@ const HeadingWidget = ({widget, setWidget, editing}) =>
                                                                                                   type: e.target.value}))}>
                             <option value = {"HEADING"}>Heading</option>
                             <option value = {"PARAGRAPH"}>Paragraph</option>
+                            <option value = {"LIST"}>List</option>
+                            <option value = {"IMAGE"}>Image</option>
                         </select>
                     </div>
                     <div className = "container-fluid wbdv-widget-field">
