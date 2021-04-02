@@ -102,6 +102,7 @@ const WidgetList = ({
                exact = {true}>
             <div className = "container-fluid">
                 <i className = "fas fa-plus fa-2x float-right"
+                   title = "Create a New Widget (Default: Heading)"
                    onClick = {createWidget}/>
                 <h2>Widget List</h2>
                 <ul className = "list-group">
@@ -125,26 +126,30 @@ const WidgetList = ({
                                 }
                                 {
                                     _widget.type === "HEADING" &&
-                                        <HeadingWidget widget = {widget}
+                                        <HeadingWidget widget = {_widget}
+                                                       widgetObject = {widget}
                                                        setWidget = {setWidget}
                                                        editing = {_widget.id === widget.id}/>
                                 }
                                 {
                                     _widget.type === "PARAGRAPH" &&
-                                        <ParagraphWidget widget = {widget}
+                                        <ParagraphWidget widget = {_widget}
+                                                         widgetObject = {widget}
                                                          setWidget = {setWidget}
                                                          editing = {_widget.id === widget.id}/>
                                 }
                                 {
                                     _widget.type === "LIST" &&
-                                        <ListWidget widget = {widget}
+                                        <ListWidget widget = {_widget}
+                                                    widgetObject = {widget}
                                                     setWidget = {setWidget}
                                                     editing = {_widget.id === widget.id}
                                                     ordered = {widget.ordered}/>
                                 }
                                 {
                                     _widget.type === "IMAGE" &&
-                                        <ImageWidget widget = {widget}
+                                        <ImageWidget widget = {_widget}
+                                                     widgetObject = {widget}
                                                      setWidget = {setWidget}
                                                      editing = {_widget.id === widget.id}/>
                                 }

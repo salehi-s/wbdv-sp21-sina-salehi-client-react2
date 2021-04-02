@@ -1,18 +1,17 @@
 import React, {useState, useEffect} from 'react'
 
-const ParagraphWidget = ({widget, setWidget, editing}) => {
+const ParagraphWidget = ({widget, widgetObject, setWidget, editing}) => {
     return (
         <div className = "container-fluid">
-            <h3>Paragraph Widget</h3>
 
             {
                 editing &&
                     <div className = "container-fluid">
                         <div className = "container-fluid wbdv-widget-field">
                             <select className = "form-control"
-                                    value = {widget.type}
-                                    onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                       type: e.target.value}))}>
+                                    value = {widgetObject.type}
+                                    onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                              type: e.target.value}))}>
                                 <option value = {"HEADING"}>Heading</option>
                                 <option value = {"PARAGRAPH"}>Paragraph</option>
                                 <option value = {"LIST"}>List</option>
@@ -21,8 +20,8 @@ const ParagraphWidget = ({widget, setWidget, editing}) => {
                         </div>
                         <div className = "container-fluid wbdv-widget-field">
                             <textarea className = "form-control"
-                                      value = {widget.text}
-                                      onChange = {(e) => setWidget({...widget,
+                                      value = {widgetObject.text}
+                                      onChange = {(e) => setWidget({...widgetObject,
                                                                                                 text: e.target.value})}/>
                         </div>
                     </div>

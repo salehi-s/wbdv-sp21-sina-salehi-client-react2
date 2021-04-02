@@ -1,8 +1,7 @@
 import React from 'react'
 
-const HeadingWidget = ({widget, setWidget, editing}) =>
+const HeadingWidget = ({widget, widgetObject, setWidget, editing}) =>
     <div className = "container-fluid">
-        <h3>Heading Widget</h3>
 
         {widget.size === 1 && <h1>{widget.text}</h1>}
         {widget.size === 2 && <h2>{widget.text}</h2>}
@@ -16,9 +15,9 @@ const HeadingWidget = ({widget, setWidget, editing}) =>
                 <div className = "container-fluid">
                     <div className = "container-fluid wbdv-widget-field">
                         <select className = "form-control"
-                               value = {widget.type}
-                               onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                  type: e.target.value}))}>
+                                value = {widgetObject.type}
+                                onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                          type: e.target.value}))}>
                             <option value = {"HEADING"}>Heading</option>
                             <option value = {"PARAGRAPH"}>Paragraph</option>
                             <option value = {"LIST"}>List</option>
@@ -27,15 +26,15 @@ const HeadingWidget = ({widget, setWidget, editing}) =>
                     </div>
                     <div className = "container-fluid wbdv-widget-field">
                         <input className = "form-control"
-                               value = {widget.text}
-                               onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                  text: e.target.value}))}/>
+                               value = {widgetObject.text}
+                               onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                        text: e.target.value}))}/>
                     </div>
                     <div className = "container-fluid wbdv-widget-field">
                         <select className = "form-control"
-                                value = {widget.size}
-                                onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                   size: parseInt(e.target.value)}))}>
+                                value = {widgetObject.size}
+                                onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                          size: parseInt(e.target.value)}))}>
                             <option value = {1}>Heading 1</option>
                             <option value = {2}>Heading 2</option>
                             <option value = {3}>Heading 3</option>

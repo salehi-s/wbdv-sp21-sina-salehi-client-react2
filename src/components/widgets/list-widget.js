@@ -1,18 +1,17 @@
 import React from 'react'
 
-const ListWidget = ({widget, setWidget, editing, ordered}) => {
+const ListWidget = ({widget, widgetObject, setWidget, editing, ordered}) => {
 
     return(
         <div className = "container-fluid">
-            <h3>List Widget</h3>
             {
                 editing &&
                     <div className = "container-fluid">
                         <div className = "container-fluid wbdv-widget-field">
                             <select className = "form-control"
-                                    value = {widget.type}
-                                    onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                       type: e.target.value}))}>
+                                    value = {widgetObject.type}
+                                    onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                              type: e.target.value}))}>
                                 <option value = {"HEADING"}>Heading</option>
                                 <option value = {"PARAGRAPH"}>Paragraph</option>
                                 <option value = {"LIST"}>List</option>
@@ -23,15 +22,15 @@ const ListWidget = ({widget, setWidget, editing, ordered}) => {
                             <input type = "checkbox"
                                    id = "orderedCheckbox"
                                    checked = {ordered}
-                                   onClick = {() => setWidget(widget => ({...widget,
-                                                                          ordered: !ordered}))}/> Ordered
+                                   onClick = {() => setWidget(widgetObject => ({...widgetObject,
+                                                                                ordered: !ordered}))}/> Ordered
                         </div>
                         <div className = "container-fluid wbdv-widget-field">
                             List Items
                             <textarea className = "form-control"
-                                      value = {widget.text}
-                                      onChange = {(e) => setWidget(widget => ({...widget,
-                                                                                                           text: e.target.value}))}
+                                      value = {widgetObject.text}
+                                      onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
+                                                                                                                  text: e.target.value}))}
                                       rows = {10}>
                             </textarea>
                         </div>
