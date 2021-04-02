@@ -1,13 +1,12 @@
 Sina Salehi</br>
 CS5610 - Web Development</br>
 Professor Annunziato</br>
-Assignment 1 (Static Base) and 2 (User Administration)
 
 <h1>New Content in README</h1>
 
 <h3>Course Editor</h3>
 
-Located at the bottom of the application map below
+Added information regarding widget types and options.
 
 <h1>Application Map</h1>
 
@@ -57,7 +56,15 @@ to the list of modules.  After selecting a module, click the plus icon under Les
 to add a new lesson with the title "New Lesson" to the list of lessons.  After selecting
 a lesson, click the plus icon under Topics to add a new topic with the title "New
 Topic" to the list of topics.  After selecting a topic, click the plus icon to the right of
-Widgets List to add a new widget with the type "HEADING", the size 1, and the text "New Widget"
+Widgets List to add a new widget with the type "HEADING", the size 1, and the text "Widget Text"
 to the list of widgets.  Widgets are specific to their corresponding topics, topics are
 specific to their corresponding lessons, lessons are specific to their corresponding modules,
 and modules are specific to their corresponding courses.
+
+Widgets may be of any of the following types: heading, paragraph, list, or image.
+Heading widgets display bold heading text using the heading tag corresponding to the
+indicated size (e.g. a heading widget of size 3 would use h3 heading tags).
+Paragraph widgets display a simple paragraph.  List widgets display an ordered list of
+items if the Ordered checkbox is marked or an unordered list of items if the Ordered
+checkbox is unmarked.  Image widgets display an image located at the indicated source
+URL with the resolution specified by the indicated width and height.

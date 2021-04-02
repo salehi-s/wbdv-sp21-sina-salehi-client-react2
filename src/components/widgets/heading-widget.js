@@ -2,18 +2,11 @@ import React from 'react'
 
 const HeadingWidget = ({widget, widgetObject, setWidget, editing}) =>
     <div className = "container-fluid">
-
-        {widget.size === 1 && <h1>{widget.text}</h1>}
-        {widget.size === 2 && <h2>{widget.text}</h2>}
-        {widget.size === 3 && <h3>{widget.text}</h3>}
-        {widget.size === 4 && <h4>{widget.text}</h4>}
-        {widget.size === 5 && <h5>{widget.text}</h5>}
-        {widget.size === 6 && <h6>{widget.text}</h6>}
-
         {
             editing &&
                 <div className = "container-fluid">
                     <div className = "container-fluid wbdv-widget-field">
+                        Widget Type
                         <select className = "form-control"
                                 value = {widgetObject.type}
                                 onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
@@ -25,12 +18,14 @@ const HeadingWidget = ({widget, widgetObject, setWidget, editing}) =>
                         </select>
                     </div>
                     <div className = "container-fluid wbdv-widget-field">
+                        Heading Text
                         <input className = "form-control"
                                value = {widgetObject.text}
                                onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
                                                                                                         text: e.target.value}))}/>
                     </div>
                     <div className = "container-fluid wbdv-widget-field">
+                        Heading Size
                         <select className = "form-control"
                                 value = {widgetObject.size}
                                 onChange = {(e) => setWidget(widgetObject => ({...widgetObject,
@@ -43,6 +38,47 @@ const HeadingWidget = ({widget, widgetObject, setWidget, editing}) =>
                             <option value = {6}>Heading 6</option>
                         </select>
                     </div>
+                </div>
+        }
+        {
+            !editing &&
+                <div className = "container-fluid">
+                    {
+                        widget.size === 1 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h1>{widget.text}</h1>
+                            </div>
+                    }
+                    {
+                        widget.size === 2 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h2>{widget.text}</h2>
+                            </div>
+                    }
+                    {
+                        widget.size === 3 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h3>{widget.text}</h3>
+                            </div>
+                    }
+                    {
+                        widget.size === 4 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h4>{widget.text}</h4>
+                            </div>
+                    }
+                    {
+                        widget.size === 5 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h5>{widget.text}</h5>
+                            </div>
+                    }
+                    {
+                        widget.size === 6 &&
+                            <div className = "container-fluid wbdv-widget-field">
+                                <h6>{widget.text}</h6>
+                            </div>
+                    }
                 </div>
         }
     </div>
