@@ -81,3 +81,11 @@ span {
   margin: 2px;
   padding: 2px;
 }
+
+.wbdv-answer-correct {
+  color: green
+}
+
+.wbdv-answer-incorrect {
+  color: red
+}
