@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom'
 import CourseTable from "./course-table/course-table"
 import CourseGrid from "./course-grid/course-grid"
 import CourseEditor from "./course-editor/course-editor"
+import QuizzesList from "./quizzes/quizzes-list"
 
 import courseService, {findAllCourses} from "../services/course-service"
 
@@ -167,6 +168,12 @@ class CourseManager extends React.Component {
                         <CourseGrid deleteCourse = {this.deleteCourse}
                                     updateCourse = {this.updateCourse}
                                     courses = {this.state.courses}/>
+                    </Route>
+                </div>
+                <div className = "container-fluid">
+                    <Route path = "/courses/:courseId/quizzes"
+                           exact = {true}>
+                        <QuizzesList/>
                     </Route>
                 </div>
                 <div className = "container-fluid">

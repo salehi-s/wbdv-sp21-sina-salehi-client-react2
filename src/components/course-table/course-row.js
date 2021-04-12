@@ -47,6 +47,11 @@ const CourseRow = (
                 <td className = "d-none d-lg-table-cell">{lastModified}</td>
                 <td className = "d-none d-lg-table-cell">{time}</td>
                 <td>
+                    <Link to = {`/courses/${course._id}/quizzes`}>
+                        Quizzes
+                    </Link>
+                </td>
+                <td>
                     <span className = "wbdv-buttons-course-row">
                         <i onClick = {() => deleteCourse(course)}
                            className = "fas fa-lg fa-trash"></i>
