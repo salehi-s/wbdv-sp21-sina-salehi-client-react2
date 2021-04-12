@@ -5,6 +5,7 @@ import CourseTable from "./course-table/course-table"
 import CourseGrid from "./course-grid/course-grid"
 import CourseEditor from "./course-editor/course-editor"
 import QuizzesList from "./quizzes/quizzes-list"
+import Quiz from "./quizzes/quiz"
 
 import courseService, {findAllCourses} from "../services/course-service"
 
@@ -174,6 +175,12 @@ class CourseManager extends React.Component {
                     <Route path = "/courses/:courseId/quizzes"
                            exact = {true}>
                         <QuizzesList/>
+                    </Route>
+                </div>
+                <div className = "container-fluid">
+                    <Route path = "/courses/:courseId/quizzes/:quizId"
+                           exact = {true}>
+                        <Quiz/>
                     </Route>
                 </div>
                 <div className = "container-fluid">
