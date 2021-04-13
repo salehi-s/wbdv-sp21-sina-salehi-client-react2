@@ -13,12 +13,12 @@ const MultipleChoiceQuestion = ({question}) => {
                     {
                         grade &&
                         answer === question.correct &&
-                            <i className = "fas fa-check fa-2x float-right wbdv-editable-item-action-icon wbdv-answer-correct"/>
+                            <i className = "fas fa-check fa-lg float-right wbdv-editable-item-action-icon wbdv-answer-correct"/>
                     }
                     {
                         grade &&
                         answer !== question.correct &&
-                            <i className = "fas fa-times fa-2x float-right wbdv-editable-item-action-icon wbdv-answer-incorrect"/>
+                            <i className = "fas fa-times fa-lg float-right wbdv-editable-item-action-icon wbdv-answer-incorrect"/>
                     }
                 </h4>
             </div>
@@ -61,9 +61,12 @@ const MultipleChoiceQuestion = ({question}) => {
                                             <li className = {`list-group-item ${question.correct === choice ? "list-group-item-success" : ""}`}>
                                                 <label>
                                                     <input type = "radio"
-                                                           name = {question._id}
-                                                           onClick = {() => setAnswer(choice)}/>
+                                                           name = {question._id}/>
                                                     {"  " + choice}
+                                                    {
+                                                        choice === question.correct &&
+                                                            <i className = "fas fa-check fa-lg float-right wbdv-editable-item-action-icon"/>
+                                                    }
                                                 </label>
                                             </li>
                                         )
@@ -76,9 +79,16 @@ const MultipleChoiceQuestion = ({question}) => {
                                             <li className = {`list-group-item ${question.correct === choice ? "list-group-item-success" : "list-group-item-danger"}`}>
                                                 <label>
                                                     <input type = "radio"
-                                                           name = {question._id}
-                                                           onClick = {() => setAnswer(choice)}/>
+                                                           name = {question._id}/>
                                                     {"  " + choice}
+                                                    {
+                                                        choice === question.correct &&
+                                                        <i className = "fas fa-check fa-lg float-right wbdv-editable-item-action-icon"/>
+                                                    }
+                                                    {
+                                                        !(choice === question.correct) &&
+                                                        <i className = "fas fa-times fa-lg float-right wbdv-editable-item-action-icon"/>
+                                                    }
                                                 </label>
                                             </li>
                                         )
@@ -93,6 +103,8 @@ const MultipleChoiceQuestion = ({question}) => {
                         </div>
                     </div>
             }
+            <br/>
+            <h6>Your Answer: {answer}</h6>
         </div>
     )
 }

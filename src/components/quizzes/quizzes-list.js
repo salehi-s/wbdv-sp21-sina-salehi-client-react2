@@ -9,7 +9,7 @@ const QuizzesList = () => {
 
     const [quizzes, setQuizzes] = useState([])
 
-    // FROM CLASS DEMONSTRATION.  REPLACED WITH SERVICE FUNCTION BELOW
+    // FROM CLASS DEMONSTRATION.  REPLACED WITH SERVICE FUNCTION BELOW. KEPT FOR FUTURE REFERENCE
     /*
     useEffect(() => {
         fetch("http://localhost:3000/api/quizzes")
@@ -20,11 +20,16 @@ const QuizzesList = () => {
     }, [])
     */
 
-    quizzesService.findAllQuizzes()
-        .then((quizzes) => {setQuizzes(quizzes)})
+    useEffect(() => {
+        quizzesService.findAllQuizzes()
+            .then((quizzes) => {setQuizzes(quizzes)})
+    }, [])
 
     return(
         <div className = "container-fluid">
+            <Link to = {`/courses`}>
+                <i className = "fas fa-arrow-left fa-2x float-left wbdv-editable-item-action-icon"/>
+            </Link>
             <h2>Quizzes</h2>
             <div className = "list-group">
                 {
