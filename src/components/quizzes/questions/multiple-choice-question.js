@@ -99,7 +99,10 @@ const MultipleChoiceQuestion = ({question}) => {
                         <div className = "container-fluid">
                             <button type = "button"
                                     className = "btn btn-success"
-                                    onClick = {() => setGrade(false)}>Try Again</button>
+                                    onClick = {() => {
+                                        setGrade(false)
+                                        setAnswer(null)
+                                    }}>Try Again</button>
                         </div>
                     </div>
             }

@@ -143,12 +143,22 @@ const TrueFalseQuestion = ({question}) => {
                         <div className = "container-fluid">
                             <button type = "button"
                                     className = "btn btn-success"
-                                    onClick = {() => setGrade(false)}>Try Again</button>
+                                    onClick = {() => {
+                                        setGrade(false)
+                                        setAnswer(null)
+                                    }}>Try Again</button>
                         </div>
                     </div>
             }
             <br/>
-            <h6>Your Answer: {JSON.stringify(answer)}</h6>
+            {
+                !(answer === null) &&
+                    <h6>Your Answer: {JSON.stringify(answer)}</h6>
+            }
+            {
+                answer === null &&
+                    <h6>Your Answer:</h6>
+            }
         </div>
     )
 }
