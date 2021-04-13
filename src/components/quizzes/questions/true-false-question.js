@@ -22,12 +22,7 @@ const TrueFalseQuestion = ({question}) => {
                     }
                 </h4>
             </div>
-            <div className = "container-fluid">
-                {question.correct}
-            </div>
-            <div className = "container-fluid">
-                {JSON.stringify(answer)}
-            </div>
+            <br/>
             {
                 !grade &&
                     <div className = "container-fluid">

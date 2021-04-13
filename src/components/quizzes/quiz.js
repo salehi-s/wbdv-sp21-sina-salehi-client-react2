@@ -3,18 +3,25 @@ import {useParams} from 'react-router-dom'
 
 import Question from "./questions/question"
 
+import questionsService from "../../services/questions-service"
+
 const Quiz = () => {
 
     const {courseId, quizId} = useParams()
 
     const [questions, setQuestions] = useState([])
 
-    // NOTE: MOVE THIS TO A SERVICE FILE
+    // FROM CLASS DEMONSTRATION.  REPLACED WITH SERVICE FUNCTION BELOW
+    /*
     useEffect(() => {
         fetch(`http://localhost:3000/api/quizzes/${quizId}/questions`)
             .then(response => response.json())
             .then((questions) => setQuestions(questions))
     }, [])
+    */
+
+    questionsService.findQuestionsForQuiz(quizId)
+        .then((questions) => {setQuestions(questions)})
 
     return(
         <div className = "container-fluid">
