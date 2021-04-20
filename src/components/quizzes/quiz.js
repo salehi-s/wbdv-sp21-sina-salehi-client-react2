@@ -10,8 +10,9 @@ const Quiz = () => {
 
     const {courseId, quizId} = useParams()
 
-    const [questions, setQuestions] = useState([])
     const [quizTitle, setQuizTitle] = useState("")
+    const [questions, setQuestions] = useState([])
+    const [submitted, setSubmitted] = useState(false)
 
     // FROM CLASS DEMONSTRATION.  REPLACED WITH SERVICE FUNCTION BELOW.  KEPT FOR FUTURE REFERENCE
     /*
@@ -46,6 +47,31 @@ const Quiz = () => {
                     )
                 }
             </ul>
+            {
+                !submitted &&
+                    <div className = "container-fluid wbdv-button-quiz-submit">
+                        <button type = "button"
+                                className = "btn btn-success"
+                                onClick = {() => {
+                                    setSubmitted(true)
+                                    quizzesService.submitQuiz(quizId, questions)
+                                }}>
+                            Submit
+                        </button>
+                    </div>
+            }
+            {
+                submitted &&
+                    <div className = "container-fluid wbdv-button-quiz-try-again">
+                        <button type = "button"
+                                className = "btn btn-success"
+                                onClick = {() => {
+                                    setSubmitted(false)
+                                }}>
+                            Try Again
+                        </button>
+                    </div>
+            }
         </div>
     )
 }

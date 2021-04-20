@@ -89,3 +89,15 @@ span {
 .wbdv-answer-incorrect {
   color: red
 }
+
+.wbdv-button-quiz-submit {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+.wbdv-button-quiz-try-again {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
