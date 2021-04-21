@@ -29,8 +29,10 @@ const WidgetList = ({
     const [widget, setWidget] = useState({})
     const [widgets, setWidgets] = useState([])
 
+    // Local Implementation: http://localhost:8080/api/topics/${topicId}/widgets
+    // Remote Implementation: http://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets
     useEffect(() => {
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
+        fetch(`http://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets`)
             .then(response => response.json())
             .then(widgets => setWidgets(widgets))
 
@@ -47,8 +49,10 @@ const WidgetList = ({
 
     }, [topicId])
 
+    // Local Implementation: http://localhost:8080/api/topics/${topicId}/widgets
+    // Remote Implementation: http://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets
     const createWidget = () => {
-        fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+        fetch(`http://salty-springs-12156.herokuapp.com/api/topics/${topicId}/widgets`, {
             method: "POST",
             body: JSON.stringify({
                 name: "New Widget",
@@ -75,16 +79,20 @@ const WidgetList = ({
             .then(widget => setWidgets((widgets) => [...widgets, widget]))
     }
 
+    // Local Implementation: http://localhost:8080/api/widgets/${id}
+    // Remote Implementation: http://salty-springs-12156.herokuapp.com/api/widgets/${id}
     const deleteWidget = (id) =>
-        fetch(`http://localhost:8080/api/widgets/${id}`, {
+        fetch(`http://salty-springs-12156.herokuapp.com/api/widgets/${id}`, {
             method: "DELETE"
         })
             .then((status) => {
                 setWidgets((widgets) => widgets.filter(w => w.id !== id))
             })
 
+    // Local Implementation: http://localhost:8080/api/widgets/${id}
+    // Remote Implementation: http://salty-springs-12156.herokuapp.com/api/widgets/${id}
     const updateWidget = (id, widget) =>
-        fetch(`http://localhost:8080/api/widgets/${id}`, {
+        fetch(`http://salty-springs-12156.herokuapp.com/api/widgets/${id}`, {
             method: "PUT",
             body: JSON.stringify(widget),
             headers: {

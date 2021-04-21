@@ -53,8 +53,8 @@ const Quiz = () => {
                         <button type = "button"
                                 className = "btn btn-success"
                                 onClick = {() => {
-                                    setSubmitted(true)
                                     quizzesService.submitQuiz(quizId, questions)
+                                    setSubmitted(true)
                                 }}>
                             Submit
                         </button>

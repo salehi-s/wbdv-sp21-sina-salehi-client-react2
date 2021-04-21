@@ -1,6 +1,10 @@
 import React from 'react'
 
-const QUIZZES_URL = "http://localhost:3000/api/quizzes"
+// Local Implementation
+// const QUIZZES_URL = "http://localhost:3000/api/quizzes"
+
+// Remote Implementation
+const QUIZZES_URL = "http://wbdv-sp21-salehi-s-server-node.herokuapp.com"
 
 const findAllQuizzes = () => {
     return fetch(QUIZZES_URL)
@@ -12,8 +16,8 @@ const findQuizById = (qid) => {
         .then(response => response.json())
 }
 
-const submitQuiz = (quizId, questions) => {
-    return fetch(`http://localhost:3000/api/quizzes/${quizId}/attempts`, {
+const submitQuiz = (quizId, questions) =>
+    fetch(`http://localhost:3000/api/quizzes/${quizId}/attempts`, {
         method: "POST",
         body: JSON.stringify(questions),
         headers: {
@@ -21,7 +25,6 @@ const submitQuiz = (quizId, questions) => {
         }
     }).then((response) => response.json())
         .then((result) => console.log(result))
-}
 
 const api = {
     findAllQuizzes,
