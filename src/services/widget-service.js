@@ -5,8 +5,8 @@ import React from 'react'
 // const WIDGETS_URL = "http://localhost:8080/api"
 
 // Remote Implementation
-const TOPICS_URL = "http://salty-springs-12156.herokuapp.com"
-const WIDGETS_URL = "http://salty-springs-12156.herokuapp.com"
+const TOPICS_URL = "http://salty-springs-12156.herokuapp.com/api"
+const WIDGETS_URL = "http://salty-springs-12156.herokuapp.com/api"
 
 export const createWidget = (tid, widget) => {
     return(
